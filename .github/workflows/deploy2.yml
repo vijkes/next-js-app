@@ -12,7 +12,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: "build image"
-      run: docker build -t ${{ secrets.DOCKERUSER }}/next-js-app .
+      run: docker build -t ${{ secrets.DOCKERUSER }}/next-js-app:$(date +%Y%m%d) .
     - name: "docker login"
       run: echo "${{ secrets.DOCKERPASS }}" | docker login -u ${{ secrets.DOCKERUSER }} --password-stdin
     - name: "docker push"
