@@ -14,7 +14,7 @@ jobs:
     - name: "build image"
       run: docker build -t vijkes/next-js-app .
     - name: "docker login"
-      run: echo "${secrets.DOCKERPASS}" | docker login -u ${secrets.DOCKERUSER}
+      run: echo "${{ secrets.DOCKERPASS }}" | docker login -u ${{ secrets.DOCKERUSER }}
     # - name: "docker push"
     #   run: docker push vijkes/next-js-app:$(date +%Y%m%d)
 
